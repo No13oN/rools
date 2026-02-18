@@ -43,7 +43,8 @@ jobs:
         run: |
           python -m unittest -v \
             tests.test_black_swan_failures \
-            tests.test_memory_backend_adapter_v1
+            tests.test_memory_backend_adapter_v1 \
+            tests.test_memory_backend_adapter_v2
 
       - name: Stage 2 - Build policy input
         run: python scripts/build_policy_input.py

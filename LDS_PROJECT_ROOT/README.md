@@ -69,11 +69,14 @@ python3 -m unittest discover -s tests -p "test_*.py" -v
 python3 scripts/apply_branch_protection.py --repo <owner/repo> --branch main --dry-run
 python3 scripts/check_branch_protection.py --repo <owner/repo> --branch main --strict
 
-# Memory backend adapter v1 (reference implementation)
-python3 scripts/memory_backend_adapter_v1.py append \
+# Memory backend adapter v2 (production SQLite backend)
+python3 scripts/memory_backend_adapter_v2.py append \
   --memory-class short_term \
   --record '{"content":"example memory","evidence_score":0.8}' \
   --provenance '{"source":"manual"}'
+python3 scripts/memory_backend_adapter_v2.py query --query "example" --top-k 5
+
+# Memory backend adapter v1 (reference file backend)
 python3 scripts/memory_backend_adapter_v1.py query --query "example" --top-k 5
 
 # Release baseline and optional tag

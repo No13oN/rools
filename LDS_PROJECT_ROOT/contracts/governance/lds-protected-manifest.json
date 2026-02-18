@@ -7,7 +7,7 @@
       "path": "../.github/workflows/lds-validate.yml",
       "tier": "tier0",
       "owner": "tooling",
-      "sha256": "c60dabf995d64a04ecb15907f74960612a1d82868b76f238e3e925cfb252e2d7",
+      "sha256": "760f3fb6d68178c57a8fd3b68e49e69c92d9ab6df47019d024a2c2532c13b9cc",
       "waiver_allowed": true
     },
     {
