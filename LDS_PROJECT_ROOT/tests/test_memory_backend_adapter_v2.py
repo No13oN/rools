@@ -1,4 +1,5 @@
 import importlib.util
+import json
 import tempfile
 from datetime import date, timedelta
 from pathlib import Path
@@ -105,12 +106,51 @@ class MemoryBackendAdapterV2Tests(unittest.TestCase):
         )
         adapter.conn.commit()
 
-        compacted = adapter.compact("episodic", "2020-12-31", max_tokens=12)
+        compacted = adapter.compact("episodic", "2020-12-31", max_words=12)
         self.assertEqual(compacted["compacted_count"], 2)
         self.assertGreaterEqual(len(compacted["summary_ids"]), 1)
 
         rows = adapter._load_records("episodic")
         self.assertTrue(any(rec.get("compacted_into") for rec in rows))
+
+    def test_query_honors_min_evidence_filter(self):
+        tmp, adapter, _ = self.make_adapter()
+        self.addCleanup(tmp.cleanup)
+        self.addCleanup(adapter.close)
+
+        adapter.append(
+            "short_term",
+            [
+                {"content": "Latency incident low confidence", "evidence_score": 0.2},
+                {"content": "Latency incident high confidence", "evidence_score": 0.9},
+            ],
+            {"source": "unit-test", "trace_id": "v2-q1"},
+        )
+
+        out = adapter.query(
+            "latency incident",
+            ["short_term"],
+            top_k=10,
+            filters={"min_evidence_score": 0.8},
+        )
+        self.assertEqual(len(out["results"]), 1)
+        self.assertIn("high confidence", out["results"][0]["evidence"]["content"].lower())
+
+    def test_records_file_path_rejects_traversal(self):
+        with self.assertRaises(ValueError):
+            self.mod.load_records_from_args("../../../etc/passwd", [])
+
+    def test_records_file_path_allows_file_inside_root(self):
+        data_path = ROOT / "tests" / "fixtures" / "memory_v2_records.json"
+        data_path.write_text(
+            json.dumps([{"content": "Fixture memory", "evidence_score": 0.6}], ensure_ascii=True),
+            encoding="utf-8",
+        )
+        self.addCleanup(lambda: data_path.unlink(missing_ok=True))
+
+        records = self.mod.load_records_from_args("tests/fixtures/memory_v2_records.json", [])
+        self.assertEqual(len(records), 1)
+        self.assertEqual(records[0]["content"], "Fixture memory")
 
 
 if __name__ == "__main__":

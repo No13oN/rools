@@ -15,6 +15,7 @@ from pathlib import Path
 from typing import Any, Dict, Iterable, Iterator, List
 
 ROOT = Path(__file__).resolve().parents[1]
+ROOT_RESOLVED = ROOT.resolve()
 LOG = logging.getLogger("memory_backend_adapter_v2")
 
 
@@ -68,7 +69,7 @@ class MemoryBackendAdapterV2:
             return None
         try:
             return date.fromisoformat(value[:10])
-        except Exception:
+        except ValueError:
             return None
 
     @staticmethod
@@ -178,7 +179,7 @@ class MemoryBackendAdapterV2:
         evidence_score = raw_record.get("evidence_score", 0.5)
         try:
             evidence_score = float(evidence_score)
-        except Exception as exc:
+        except (ValueError, TypeError) as exc:
             raise ValueError(f"record.evidence_score must be float-compatible ({exc})") from exc
 
         tags = raw_record.get("tags", [])
@@ -219,11 +220,13 @@ class MemoryBackendAdapterV2:
         provenance_raw = row["provenance_json"]
         try:
             tags = json.loads(tags_raw)
-        except Exception:
+        except (json.JSONDecodeError, TypeError):
+            LOG.debug("invalid tags_json for record_id=%s", row["record_id"])
             tags = []
         try:
             provenance = json.loads(provenance_raw)
-        except Exception:
+        except (json.JSONDecodeError, TypeError):
+            LOG.debug("invalid provenance_json for record_id=%s", row["record_id"])
             provenance = {}
         if not isinstance(tags, list):
             tags = []
@@ -342,8 +345,9 @@ class MemoryBackendAdapterV2:
             WHERE tombstone = 0
               AND memory_class IN ({placeholders})
               AND expires_on >= ?
+              AND evidence_score >= ?
             """,
-            [*classes, today],
+            [*classes, today, min_evidence],
         ).fetchall()
 
         scored: List[Dict[str, Any]] = []
@@ -352,8 +356,6 @@ class MemoryBackendAdapterV2:
         for row in rows:
             rec = self._row_to_record(row)
             evidence = float(rec["evidence_score"])
-            if evidence < min_evidence:
-                continue
 
             tags = set(rec.get("tags", []))
             if required_tags and not required_tags.issubset(tags):
@@ -386,7 +388,7 @@ class MemoryBackendAdapterV2:
             "filters": filter_obj,
         }
 
-    def compact(self, memory_class: str, before_date: str, max_tokens: int) -> Dict[str, Any]:
+    def compact(self, memory_class: str, before_date: str, max_words: int) -> Dict[str, Any]:
         self._validate_memory_class(memory_class)
 
         try:
@@ -412,7 +414,7 @@ class MemoryBackendAdapterV2:
 
         text = "\n".join(str(rec.get("content", "")).strip() for rec in eligible).strip()
         words = text.split()
-        summary = " ".join(words[: max(1, int(max_tokens))])
+        summary = " ".join(words[: max(1, int(max_words))])
         max_evidence = max(float(rec.get("evidence_score", 0.0)) for rec in eligible)
 
         append_result = self.append(
@@ -492,18 +494,27 @@ class MemoryBackendAdapterV2:
 def parse_json_value(raw: str, field_name: str) -> Dict[str, Any]:
     try:
         data = json.loads(raw)
-    except Exception as exc:
+    except (json.JSONDecodeError, TypeError) as exc:
         raise ValueError(f"{field_name} must be valid JSON ({exc})") from exc
     if not isinstance(data, dict):
         raise ValueError(f"{field_name} must be a JSON object")
     return data
 
 
+def resolve_records_file_path(records_file: str) -> Path:
+    path = Path(records_file)
+    candidate = path if path.is_absolute() else (ROOT / path)
+    resolved = candidate.resolve()
+    if ROOT_RESOLVED not in resolved.parents and resolved != ROOT_RESOLVED:
+        raise ValueError("records_file path must stay inside LDS root")
+    return resolved
+
+
 def load_records_from_args(records_file: str | None, record_values: List[str]) -> List[Dict[str, Any]]:
     records: List[Dict[str, Any]] = []
 
     if records_file:
-        path = Path(records_file)
+        path = resolve_records_file_path(records_file)
         with path.open("r", encoding="utf-8") as f:
             data = json.load(f)
         if isinstance(data, dict):
@@ -560,7 +571,14 @@ def main() -> int:
     p_compact = sub.add_parser("compact", help="Compact old records")
     p_compact.add_argument("--memory-class", required=True)
     p_compact.add_argument("--before-date", required=True, help="YYYY-MM-DD")
-    p_compact.add_argument("--max-tokens", type=int, default=256)
+    p_compact.add_argument(
+        "--max-words",
+        "--max-tokens",
+        dest="max_words",
+        type=int,
+        default=256,
+        help="Maximum words in compacted summary (legacy alias: --max-tokens).",
+    )
 
     p_evict = sub.add_parser("evict", help="Evict records")
     p_evict.add_argument("--memory-class", required=True)
@@ -587,7 +605,7 @@ def main() -> int:
             filters = parse_json_value(args.filters, "--filters")
             out = adapter.query(args.query, classes, args.top_k, filters=filters)
         elif args.cmd == "compact":
-            out = adapter.compact(args.memory_class, args.before_date, args.max_tokens)
+            out = adapter.compact(args.memory_class, args.before_date, args.max_words)
         elif args.cmd == "evict":
             out = adapter.evict(args.memory_class, args.selector, args.reason_code)
         else:
