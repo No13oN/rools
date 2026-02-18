@@ -1,0 +1,315 @@
+{
+  "version": "1.2.0",
+  "last_updated": "2026-02-18",
+  "hash_algorithm": "sha256",
+  "entries": [
+    {
+      "path": "../.github/workflows/lds-validate.yml",
+      "tier": "tier0",
+      "owner": "tooling",
+      "sha256": "c60dabf995d64a04ecb15907f74960612a1d82868b76f238e3e925cfb252e2d7",
+      "waiver_allowed": true
+    },
+    {
+      "path": "contracts/evaluation/lds-eval-thresholds.json",
+      "tier": "tier0",
+      "owner": "qa-governance",
+      "sha256": "1635d7248902acfe337f6d53bb762a77e27ae4b085728d4a3f13d846316dd087",
+      "waiver_allowed": true
+    },
+    {
+      "path": "contracts/evaluation/lds-eval-thresholds.schema.json",
+      "tier": "tier0",
+      "owner": "qa-governance",
+      "sha256": "1acd02c2551bccedf333a46819965b37f7ebabfcc1ae92a497a61ddc0440b8bd",
+      "waiver_allowed": true
+    },
+    {
+      "path": "contracts/evaluation/lds-handoff-acceptance.json",
+      "tier": "tier0",
+      "owner": "platform-engineering",
+      "sha256": "a601e7bc5640dd1eb81738aef559fb9d33ee4e612a0d91c47780308b515e6735",
+      "waiver_allowed": true
+    },
+    {
+      "path": "contracts/evaluation/lds-handoff-acceptance.schema.json",
+      "tier": "tier0",
+      "owner": "platform-engineering",
+      "sha256": "6a1f7b5b0b0b442c4acbb2bb71205200b4e32cc28afe6786b41490ff14b1ca52",
+      "waiver_allowed": true
+    },
+    {
+      "path": "contracts/governance/lds-contract-manifest.json",
+      "tier": "tier0",
+      "owner": "platform-engineering",
+      "sha256": "8594e94db1c53b2e533d0ee8352764c0f1a2fb926484a3eee8c866095cc5b342",
+      "waiver_allowed": true
+    },
+    {
+      "path": "contracts/governance/lds-contract-manifest.schema.json",
+      "tier": "tier0",
+      "owner": "platform-engineering",
+      "sha256": "9f1a3e0cdcb9729ae3e2f66c4f1f4735af81fd9c0e0067ce0b85d544cf96e57d",
+      "waiver_allowed": true
+    },
+    {
+      "path": "contracts/governance/lds-protected-manifest.schema.json",
+      "tier": "tier0",
+      "owner": "qa-governance",
+      "sha256": "20549a1a570250a6a5628441f7b30f4cd539cdee76be409631f3eab4ff00fc05",
+      "waiver_allowed": true
+    },
+    {
+      "path": "contracts/governance/lds-waivers.schema.json",
+      "tier": "tier0",
+      "owner": "qa-governance",
+      "sha256": "fcfb0d85668599350d91e805152374571a1a4d8d1052f5158bd683fc2d225f74",
+      "waiver_allowed": true
+    },
+    {
+      "path": "contracts/governance/lds-waivers.yaml",
+      "tier": "tier0",
+      "owner": "qa-governance",
+      "sha256": "ebe555001a4862d66dae2f13d71fea8a40193cfd809c3e41473efbfa9a462b34",
+      "waiver_allowed": true
+    },
+    {
+      "path": "contracts/memory/lds-memory-api.json",
+      "tier": "tier0",
+      "owner": "platform-engineering",
+      "sha256": "3a749fc3ff63bb81285e6e3e0ad870d1fd55950e3f1da351d357c1f9135e3696",
+      "waiver_allowed": true
+    },
+    {
+      "path": "contracts/memory/lds-memory-api.schema.json",
+      "tier": "tier0",
+      "owner": "platform-engineering",
+      "sha256": "11c2514df71d0cfc7c7033bda0709b003363611b29d2ab26c758409e2635e416",
+      "waiver_allowed": true
+    },
+    {
+      "path": "contracts/memory/lds-memory-policy.json",
+      "tier": "tier0",
+      "owner": "platform-engineering",
+      "sha256": "f4b03c3717469d86e1f53a633e64078c1d98d70a08e546c806257554e314d8e1",
+      "waiver_allowed": true
+    },
+    {
+      "path": "contracts/memory/lds-memory-policy.schema.json",
+      "tier": "tier0",
+      "owner": "platform-engineering",
+      "sha256": "e37efdb8562667c6f52f2c7bf3026ee66b6f610cd496a338d0ddfe8d66db4490",
+      "waiver_allowed": true
+    },
+    {
+      "path": "contracts/policy/lds-policy.json",
+      "tier": "tier0",
+      "owner": "platform-engineering",
+      "sha256": "e40b04ed75505357890013bc81a3b202f71918746de805a2eca332a992867060",
+      "waiver_allowed": true
+    },
+    {
+      "path": "contracts/policy/lds-policy.schema.json",
+      "tier": "tier0",
+      "owner": "platform-engineering",
+      "sha256": "7c0e6e595e91f2116e24cdf5df14aae36a603fb349ba1ff97c9171bac1dbc099",
+      "waiver_allowed": true
+    },
+    {
+      "path": "contracts/retrieval/lds-retrieval-policy.json",
+      "tier": "tier0",
+      "owner": "platform-engineering",
+      "sha256": "a5def39c40690f841d06c922f526d76c285866134419ff296eab19a4783c6e87",
+      "waiver_allowed": true
+    },
+    {
+      "path": "contracts/retrieval/lds-retrieval-policy.schema.json",
+      "tier": "tier0",
+      "owner": "platform-engineering",
+      "sha256": "fb77a4f22e6fbf8a92e5898398611382e78dfce139e2f3ff6fab325ffeb0f0d6",
+      "waiver_allowed": true
+    },
+    {
+      "path": "contracts/rules/lds-publish-gate.json",
+      "tier": "tier0",
+      "owner": "platform-engineering",
+      "sha256": "11d772ba64d4521b6cbb7b77092ee7f054ae7f430b1aa84d7e7aa4e0258405fd",
+      "waiver_allowed": true
+    },
+    {
+      "path": "contracts/rules/lds-publish-gate.schema.json",
+      "tier": "tier0",
+      "owner": "platform-engineering",
+      "sha256": "fb2f4e8a2c36aa0971115f5b8f3f75f4bc19b131d0c8968d32002b4b390ff1d9",
+      "waiver_allowed": true
+    },
+    {
+      "path": "contracts/rules/lds-publish-gate.yaml",
+      "tier": "tier0",
+      "owner": "platform-engineering",
+      "sha256": "4b82c9d82ac5a3d33eddb9d3fc9d656c259c73b769c343f9e385d75a137dd3bd",
+      "waiver_allowed": true
+    },
+    {
+      "path": "contracts/rules/lds-ruleset.json",
+      "tier": "tier0",
+      "owner": "platform-engineering",
+      "sha256": "6a2390192dc17cc5e4afb409fb2c867a8064589200e60b3a582b7508b8778969",
+      "waiver_allowed": true
+    },
+    {
+      "path": "contracts/rules/lds-ruleset.schema.json",
+      "tier": "tier0",
+      "owner": "platform-engineering",
+      "sha256": "bd08384405dadefa4077676d6918c833fa13920057e119b3a3f0f2d88e4b37e4",
+      "waiver_allowed": true
+    },
+    {
+      "path": "contracts/schemas/lds-frontmatter.schema.json",
+      "tier": "tier0",
+      "owner": "platform-engineering",
+      "sha256": "823b463cd68c6e7ef8aa0b5c3ab140a9e0a9c9f449d1245b23ca7544f3c445c5",
+      "waiver_allowed": true
+    },
+    {
+      "path": "contracts/token/lds-token-budget.json",
+      "tier": "tier0",
+      "owner": "platform-engineering",
+      "sha256": "edc444094374ed3469b0d965c9c190fdeaf66c8981447e1b506261a888a72fc5",
+      "waiver_allowed": true
+    },
+    {
+      "path": "contracts/token/lds-token-budget.schema.json",
+      "tier": "tier0",
+      "owner": "platform-engineering",
+      "sha256": "1f05b9a66a93e73584ae309e7b92e14eeac377fa436ddd6a091cfeb47efec94d",
+      "waiver_allowed": true
+    },
+    {
+      "path": "contracts/token/lds-tokenizer-mirror.json",
+      "tier": "tier0",
+      "owner": "platform-engineering",
+      "sha256": "b3b186a988f30fd2f2ac1ed68032af8aa386af5b77baa79cbb9ac95895bbec49",
+      "waiver_allowed": true
+    },
+    {
+      "path": "contracts/token/lds-tokenizer-mirror.schema.json",
+      "tier": "tier0",
+      "owner": "platform-engineering",
+      "sha256": "3ea0837832511dc24899e27e467737ec3cfa03462ab6f1fbeebbaa0b1336eda1",
+      "waiver_allowed": true
+    },
+    {
+      "path": "docs/governance/lds-canonical-tier0.md",
+      "tier": "tier0",
+      "owner": "qa-governance",
+      "sha256": "d34a3ff0b3ad010c133fca4e060ebcc4a75122fe90646feef4fda6328c0a24db",
+      "waiver_allowed": true
+    },
+    {
+      "path": "docs/governance/lds-glossary.md",
+      "tier": "tier0",
+      "owner": "docs-architecture",
+      "sha256": "709d93bf12078cc8e736be937093514bfb6a862f4ea640237baf8f1f0e0c00f6",
+      "waiver_allowed": true
+    },
+    {
+      "path": "docs/governance/lds-governance-raci.md",
+      "tier": "tier0",
+      "owner": "qa-governance",
+      "sha256": "299b0e2728161f5f516f178cb3b6150323c20896fdbf915bd42d1780b8235dac",
+      "waiver_allowed": true
+    },
+    {
+      "path": "docs/governance/lds-ownership.yaml",
+      "tier": "tier0",
+      "owner": "qa-governance",
+      "sha256": "53c13a631fe44140d2e0838a7c494ed9eea7929c951ac911a8aa24c5cee10d83",
+      "waiver_allowed": true
+    },
+    {
+      "path": "docs/governance/lds-waivers.md",
+      "tier": "tier0",
+      "owner": "qa-governance",
+      "sha256": "d72db6e347eff55daf1515cdfdf2cbb5946d39657dc23e715fa38fae755f6885",
+      "waiver_allowed": true
+    },
+    {
+      "path": "docs/standards/lds-execution-card.md",
+      "tier": "tier0",
+      "owner": "docs-architecture",
+      "sha256": "bf0d8380e3d3530a5ef31f3efa1f0573cd67fbc37d0aa855d94566e2ef0c1fd2",
+      "waiver_allowed": true
+    },
+    {
+      "path": "docs/standards/lds-spec.md",
+      "tier": "tier0",
+      "owner": "docs-architecture",
+      "sha256": "429bd3db28e6a111f8222ce42bf52211375101928e3949873304679817b657ae",
+      "waiver_allowed": true
+    },
+    {
+      "path": "docs/standards/lds-standards-profile.md",
+      "tier": "tier0",
+      "owner": "docs-architecture",
+      "sha256": "257dff78be58fa68373f7754fac67412ac902341114f1543793f8f5318d952aa",
+      "waiver_allowed": true
+    },
+    {
+      "path": "policies/opa/lds_gate.rego",
+      "tier": "tier0",
+      "owner": "tooling",
+      "sha256": "f6593bbc4e1236d2c366294960b16ae2a4b5a5994aa7246d532238d053cbb23c",
+      "waiver_allowed": true
+    },
+    {
+      "path": "scripts/build_policy_input.py",
+      "tier": "tier0",
+      "owner": "tooling",
+      "sha256": "f7f65faec233a83d5e5e5c24745f65bbcfd434003bc68ff8b59e6681e088f4f3",
+      "waiver_allowed": true
+    },
+    {
+      "path": "scripts/eval_handoff_acceptance.py",
+      "tier": "tier0",
+      "owner": "tooling",
+      "sha256": "275fa4997d1a23856fa4fe846d41a1297fdf2f4b962b9707aec3bb4a4c240cb7",
+      "waiver_allowed": true
+    },
+    {
+      "path": "scripts/eval_policy_gate.py",
+      "tier": "tier0",
+      "owner": "tooling",
+      "sha256": "57a84a740ebe0a6f8b6a39527dd7c9d89588cb0701c2ad7fc44c9dfab247cabc",
+      "waiver_allowed": true
+    },
+    {
+      "path": "scripts/validate_integrity_gate.py",
+      "tier": "tier0",
+      "owner": "tooling",
+      "sha256": "43896dae1dad8e68fb207443dde3a1b6decfccf11b6f429e0873cacf8c2c84f6",
+      "waiver_allowed": true
+    },
+    {
+      "path": "scripts/validate_lds.py",
+      "tier": "tier0",
+      "owner": "tooling",
+      "sha256": "13555f0886ac998becd0d9d6bba8339808fc9015a174522c87178eb988e43871",
+      "waiver_allowed": true
+    },
+    {
+      "path": "scripts/validate_tokenizer_offline.py",
+      "tier": "tier0",
+      "owner": "tooling",
+      "sha256": "b78764b5d15db0f79a0dd63f22082371af6155381895670a503eaf7648f9c368",
+      "waiver_allowed": true
+    },
+    {
+      "path": "vendor/tokenizers/tiktoken-cache/9b5ad71b2ce5302211f9c61530b329a4922fc6a4",
+      "tier": "tier0",
+      "owner": "tooling",
+      "sha256": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+      "waiver_allowed": true
+    }
+  ]
+}

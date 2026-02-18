@@ -1,0 +1,53 @@
+version: 1.3.0
+last_updated: '2026-02-18'
+static_gate:
+  required:
+  - frontmatter_schema_valid
+  - required_metadata_present
+  - heading_hierarchy_valid
+  - token_limit_ok
+  - code_fence_language_tags_present
+  - link_integrity_ok
+  - image_alt_text_present
+  - protected_manifest_valid
+  - tier0_hash_integrity
+  - retrieval_policy_valid
+  - token_budget_valid
+  - evaluation_contracts_valid
+  - offline_tokenizer_mirror_valid
+semantic_gate:
+  weighted_score_min: 90
+  class_thresholds:
+    factual: 90
+    procedural: 90
+    error_interpretation: 90
+    comparison: 80
+    edge_case: 80
+  block_on_critical_hallucination:
+  - factual
+  - procedural
+  - error_interpretation
+governance_gate:
+  required:
+  - must_exceptions_documented
+  - waivers_unexpired
+  - freshness_valid
+  - waiver_registry_valid
+  - raci_defined
+  - policy_gate_passed
+  - handoff_acceptance_passed
+release_decision:
+  pass_condition: all(static_gate) and all(semantic_gate) and all(governance_gate)
+  fail_condition: any_gate_failed
+required_artifacts:
+- static_report
+- semantic_scorecard
+- waiver_list
+- freshness_report
+- integrity_report
+- retrieval_report
+- token_budget_report
+- evaluation_report
+- policy_report
+- handoff_report
+- freeze_report

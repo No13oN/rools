@@ -1,0 +1,35 @@
+{
+  "interface_id": "lds-memory-api",
+  "version": "1.0.0",
+  "last_updated": "2026-02-18",
+  "transport_agnostic": true,
+  "operations": {
+    "append": {
+      "purpose": "Append memory records with provenance to short-term, episodic, or long-term classes.",
+      "request_schema": "MemoryAppendRequest{memory_class, records[], provenance}",
+      "response_schema": "MemoryAppendResponse{accepted_count, record_ids[]}",
+      "idempotent": false,
+      "notes": "Duplicate records must be deduplicated by canonical content hash upstream."
+    },
+    "query": {
+      "purpose": "Retrieve ranked memory records by intent and context filters.",
+      "request_schema": "MemoryQueryRequest{query, memory_classes[], top_k, filters}",
+      "response_schema": "MemoryQueryResponse{results[{record_id, score, evidence}], trace_id}",
+      "idempotent": true
+    },
+    "compact": {
+      "purpose": "Compress stale records into summaries while preserving provenance links.",
+      "request_schema": "MemoryCompactRequest{memory_class, before_date, max_tokens}",
+      "response_schema": "MemoryCompactResponse{compacted_count, summary_ids[]}",
+      "idempotent": false,
+      "notes": "Compaction must not remove records referenced by active tasks."
+    },
+    "evict": {
+      "purpose": "Remove records by TTL or policy violation with auditable reason codes.",
+      "request_schema": "MemoryEvictRequest{memory_class, selector, reason_code}",
+      "response_schema": "MemoryEvictResponse{evicted_count, tombstones[]}",
+      "idempotent": true,
+      "notes": "Hard delete is forbidden for records under compliance hold."
+    }
+  }
+}

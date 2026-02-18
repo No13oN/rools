@@ -1,0 +1,142 @@
+{
+  "ruleset_id": "lds-ruleset",
+  "version": "1.0.0",
+  "last_updated": "2026-02-17",
+  "rules": [
+    {
+      "id": "LDS-MUST-001",
+      "level": "MUST",
+      "category": "format",
+      "check_type": "static",
+      "auto_check": true,
+      "description": "Operational documents must be Markdown.",
+      "fail_condition": "Non-Markdown file used for operational documentation."
+    },
+    {
+      "id": "LDS-MUST-002",
+      "level": "MUST",
+      "category": "metadata",
+      "check_type": "static",
+      "auto_check": true,
+      "description": "YAML frontmatter must exist.",
+      "fail_condition": "Frontmatter block missing."
+    },
+    {
+      "id": "LDS-MUST-003",
+      "level": "MUST",
+      "category": "metadata",
+      "check_type": "static",
+      "auto_check": true,
+      "description": "Required frontmatter fields must be present.",
+      "fail_condition": "Any required field is missing."
+    },
+    {
+      "id": "LDS-MUST-004",
+      "level": "MUST",
+      "category": "structure",
+      "check_type": "static",
+      "auto_check": true,
+      "description": "One primary topic per file.",
+      "fail_condition": "Document contains multiple unrelated primary intents."
+    },
+    {
+      "id": "LDS-MUST-005",
+      "level": "MUST",
+      "category": "structure",
+      "check_type": "static",
+      "auto_check": true,
+      "description": "Heading levels must be contiguous.",
+      "fail_condition": "Heading skip detected (for example H1 to H3)."
+    },
+    {
+      "id": "LDS-MUST-006",
+      "level": "MUST",
+      "category": "token_budget",
+      "check_type": "static",
+      "auto_check": true,
+      "description": "Maximum file size is 10,000 tokens.",
+      "fail_condition": "Token count exceeds 10,000."
+    },
+    {
+      "id": "LDS-MUST-007",
+      "level": "MUST",
+      "category": "retrieval",
+      "check_type": "semantic",
+      "auto_check": false,
+      "description": "Critical instructions must be inline, not link-only.",
+      "fail_condition": "Required instruction exists only as a link reference."
+    },
+    {
+      "id": "LDS-MUST-008",
+      "level": "MUST",
+      "category": "terminology",
+      "check_type": "semantic",
+      "auto_check": false,
+      "description": "Canonical terminology must be consistent.",
+      "fail_condition": "Multiple active terms used for one concept without alias policy."
+    },
+    {
+      "id": "LDS-MUST-009",
+      "level": "MUST",
+      "category": "freshness",
+      "check_type": "semantic",
+      "auto_check": false,
+      "description": "Time-sensitive statements must include explicit date context.",
+      "fail_condition": "Undated time-sensitive claim detected."
+    },
+    {
+      "id": "LDS-MUST-010",
+      "level": "MUST",
+      "category": "evidence",
+      "check_type": "semantic",
+      "auto_check": false,
+      "description": "Numeric claims must include source or verification date.",
+      "fail_condition": "Numeric claim without source/verification metadata."
+    },
+    {
+      "id": "LDS-MUST-011",
+      "level": "MUST",
+      "category": "code",
+      "check_type": "static",
+      "auto_check": true,
+      "description": "Code blocks must be fenced and language-tagged.",
+      "fail_condition": "Untagged or malformed code fence detected."
+    },
+    {
+      "id": "LDS-MUST-012",
+      "level": "MUST",
+      "category": "security",
+      "check_type": "static",
+      "auto_check": true,
+      "description": "No secrets in examples.",
+      "fail_condition": "Secret-like token detected in sample code."
+    },
+    {
+      "id": "LDS-MUST-013",
+      "level": "MUST",
+      "category": "media",
+      "check_type": "static",
+      "auto_check": true,
+      "description": "Images must include meaningful alt text.",
+      "fail_condition": "Missing or empty alt text."
+    },
+    {
+      "id": "LDS-MUST-014",
+      "level": "MUST",
+      "category": "media",
+      "check_type": "semantic",
+      "auto_check": false,
+      "description": "Architecture diagrams must include text equivalents.",
+      "fail_condition": "No textual flow description for architecture diagram."
+    },
+    {
+      "id": "LDS-MUST-015",
+      "level": "MUST",
+      "category": "release",
+      "check_type": "semantic",
+      "auto_check": false,
+      "description": "Release must pass semantic gate thresholds.",
+      "fail_condition": "Any semantic threshold below required minimum."
+    }
+  ]
+}

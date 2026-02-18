@@ -1,0 +1,30 @@
+{
+  "task_id": "lds-bootstrap-v1",
+  "steps": [
+    {
+      "step_id": "S1",
+      "action": "Load canonical contract manifest"
+    },
+    {
+      "step_id": "S2",
+      "action": "Validate schemas and policy contracts"
+    },
+    {
+      "step_id": "S3",
+      "action": "Run static and semantic gates"
+    },
+    {
+      "step_id": "S4",
+      "action": "Verify integrity manifests"
+    },
+    {
+      "step_id": "S5",
+      "action": "Publish release artifacts"
+    },
+    {
+      "step_id": "S6",
+      "action": "Record handoff log and exit"
+    }
+  ],
+  "agent_id": "codex"
+}

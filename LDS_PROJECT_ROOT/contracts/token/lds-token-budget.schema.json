@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://knowledge-architecture.local/schemas/lds-token-budget.schema.json",
+  "title": "LDS Token Budget Schema",
+  "type": "object",
+  "required": [
+    "version",
+    "last_updated",
+    "document_limits",
+    "retrieval_limits"
+  ],
+  "properties": {
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "last_updated": { "type": "string", "format": "date" },
+    "document_limits": {
+      "type": "object",
+      "required": ["max_tokens_per_doc", "max_tokens_for_llms_txt"],
+      "properties": {
+        "max_tokens_per_doc": { "type": "integer", "minimum": 1000 },
+        "max_tokens_for_llms_txt": { "type": "integer", "minimum": 1000 }
+      },
+      "additionalProperties": false
+    },
+    "retrieval_limits": {
+      "type": "object",
+      "required": ["max_prompt_tokens", "max_context_tokens"],
+      "properties": {
+        "max_prompt_tokens": { "type": "integer", "minimum": 256 },
+        "max_context_tokens": { "type": "integer", "minimum": 512 }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

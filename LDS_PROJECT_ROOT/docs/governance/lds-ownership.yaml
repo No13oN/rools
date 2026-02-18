@@ -1,0 +1,71 @@
+version: "1.4.0"
+last_updated: "2026-02-18"
+
+ownership:
+  spec_owner:
+    role: "Docs Architect"
+    responsibility: "Canonical LDS specification and rule evolution"
+    files:
+      - "docs/standards/lds-spec.md"
+      - "docs/standards/lds-execution-card.md"
+      - "docs/standards/lds-standards-profile.md"
+      - "docs/governance/lds-canonical-tier0.md"
+
+  contract_owner:
+    role: "Platform Engineer"
+    responsibility: "Machine-readable contracts and schema integrity"
+    files:
+      - "contracts/schemas/lds-frontmatter.schema.json"
+      - "contracts/rules/lds-ruleset.json"
+      - "contracts/rules/lds-ruleset.schema.json"
+      - "contracts/rules/lds-publish-gate.json"
+      - "contracts/rules/lds-publish-gate.yaml"
+      - "contracts/rules/lds-publish-gate.schema.json"
+      - "contracts/policy/lds-policy.json"
+      - "contracts/policy/lds-policy.schema.json"
+      - "contracts/governance/lds-contract-manifest.json"
+      - "contracts/governance/lds-contract-manifest.schema.json"
+      - "contracts/governance/lds-protected-manifest.json"
+      - "contracts/governance/lds-protected-manifest.schema.json"
+      - "contracts/governance/lds-waivers.yaml"
+      - "contracts/governance/lds-waivers.schema.json"
+      - "contracts/memory/lds-memory-policy.json"
+      - "contracts/memory/lds-memory-policy.schema.json"
+      - "contracts/memory/lds-memory-api.json"
+      - "contracts/memory/lds-memory-api.schema.json"
+      - "contracts/retrieval/lds-retrieval-policy.json"
+      - "contracts/retrieval/lds-retrieval-policy.schema.json"
+      - "contracts/token/lds-token-budget.json"
+      - "contracts/token/lds-token-budget.schema.json"
+      - "contracts/token/lds-tokenizer-mirror.json"
+      - "contracts/token/lds-tokenizer-mirror.schema.json"
+      - "contracts/evaluation/lds-eval-thresholds.json"
+      - "contracts/evaluation/lds-eval-thresholds.schema.json"
+      - "contracts/evaluation/lds-handoff-acceptance.json"
+      - "contracts/evaluation/lds-handoff-acceptance.schema.json"
+
+  governance_owner:
+    role: "QA/Governance Lead"
+    responsibility: "Waivers, freshness, release evidence, and readiness audits"
+    files:
+      - "docs/governance/lds-waivers.md"
+      - "docs/governance/lds-changelog.md"
+      - "docs/governance/lds-glossary.md"
+      - "docs/governance/lds-governance-raci.md"
+      - "docs/governance/lds-readiness-audit.md"
+
+  validation_owner:
+    role: "Tooling Engineer"
+    responsibility: "CI checks, anti-drift guards, and test fixtures"
+    files:
+      - "policies/opa/lds_gate.rego"
+      - "scripts/validate_lds.py"
+      - "scripts/validate_tokenizer_offline.py"
+      - "scripts/build_policy_input.py"
+      - "scripts/eval_policy_gate.py"
+      - "scripts/eval_semantic_gate.py"
+      - "scripts/eval_handoff_acceptance.py"
+      - "scripts/validate_integrity_gate.py"
+      - "scripts/validate_release_artifacts.py"
+      - "../.github/workflows/lds-validate.yml"
+      - "tests/**/*"

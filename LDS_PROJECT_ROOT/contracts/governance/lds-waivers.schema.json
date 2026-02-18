@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://knowledge-architecture.local/schemas/lds-waivers.schema.json",
+  "title": "LDS Waiver Registry Schema",
+  "type": "object",
+  "required": [
+    "version",
+    "last_updated",
+    "waivers"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "last_updated": {
+      "type": "string",
+      "format": "date"
+    },
+    "waivers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "waiver_id",
+          "waiver_type",
+          "scope_path",
+          "reason",
+          "owner",
+          "created_on",
+          "expires_on",
+          "mitigation",
+          "status"
+        ],
+        "properties": {
+          "waiver_id": {
+            "type": "string",
+            "pattern": "^WVR-[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{2}$"
+          },
+          "waiver_type": {
+            "type": "string",
+            "enum": [
+              "must_rule_exception",
+              "tier0_hash_override",
+              "temporary_gate_reduction"
+            ]
+          },
+          "rule_id": {
+            "type": "string",
+            "pattern": "^LDS-MUST-[0-9]{3}$"
+          },
+          "scope_path": {
+            "type": "string",
+            "minLength": 3
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 10
+          },
+          "owner": {
+            "type": "string",
+            "minLength": 2
+          },
+          "created_on": {
+            "type": "string",
+            "format": "date"
+          },
+          "expires_on": {
+            "type": "string",
+            "format": "date"
+          },
+          "mitigation": {
+            "type": "string",
+            "minLength": 5
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "active",
+              "closed"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

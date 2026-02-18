@@ -1,0 +1,179 @@
+{
+  "manifest_id": "lds-contract-manifest",
+  "version": "1.2.0",
+  "standard_version": "1.4.0",
+  "last_updated": "2026-02-18",
+  "hash_algorithm": "sha256",
+  "canonical_root": "contracts",
+  "self_hash_excluded": true,
+  "entries": [
+    {
+      "path": "contracts/evaluation/lds-eval-thresholds.json",
+      "kind": "instance",
+      "format": "json",
+      "schema_path": "contracts/evaluation/lds-eval-thresholds.schema.json",
+      "sha256": "1635d7248902acfe337f6d53bb762a77e27ae4b085728d4a3f13d846316dd087"
+    },
+    {
+      "path": "contracts/evaluation/lds-eval-thresholds.schema.json",
+      "kind": "schema",
+      "format": "json",
+      "sha256": "1acd02c2551bccedf333a46819965b37f7ebabfcc1ae92a497a61ddc0440b8bd"
+    },
+    {
+      "path": "contracts/evaluation/lds-handoff-acceptance.json",
+      "kind": "instance",
+      "format": "json",
+      "schema_path": "contracts/evaluation/lds-handoff-acceptance.schema.json",
+      "sha256": "a601e7bc5640dd1eb81738aef559fb9d33ee4e612a0d91c47780308b515e6735"
+    },
+    {
+      "path": "contracts/evaluation/lds-handoff-acceptance.schema.json",
+      "kind": "schema",
+      "format": "json",
+      "sha256": "6a1f7b5b0b0b442c4acbb2bb71205200b4e32cc28afe6786b41490ff14b1ca52"
+    },
+    {
+      "path": "contracts/governance/lds-contract-manifest.schema.json",
+      "kind": "schema",
+      "format": "json",
+      "sha256": "9f1a3e0cdcb9729ae3e2f66c4f1f4735af81fd9c0e0067ce0b85d544cf96e57d"
+    },
+    {
+      "path": "contracts/governance/lds-protected-manifest.schema.json",
+      "kind": "schema",
+      "format": "json",
+      "sha256": "20549a1a570250a6a5628441f7b30f4cd539cdee76be409631f3eab4ff00fc05"
+    },
+    {
+      "path": "contracts/governance/lds-waivers.schema.json",
+      "kind": "schema",
+      "format": "json",
+      "sha256": "fcfb0d85668599350d91e805152374571a1a4d8d1052f5158bd683fc2d225f74"
+    },
+    {
+      "path": "contracts/governance/lds-waivers.yaml",
+      "kind": "instance",
+      "format": "yaml",
+      "schema_path": "contracts/governance/lds-waivers.schema.json",
+      "sha256": "ebe555001a4862d66dae2f13d71fea8a40193cfd809c3e41473efbfa9a462b34"
+    },
+    {
+      "path": "contracts/memory/lds-memory-api.json",
+      "kind": "instance",
+      "format": "json",
+      "schema_path": "contracts/memory/lds-memory-api.schema.json",
+      "sha256": "3a749fc3ff63bb81285e6e3e0ad870d1fd55950e3f1da351d357c1f9135e3696"
+    },
+    {
+      "path": "contracts/memory/lds-memory-api.schema.json",
+      "kind": "schema",
+      "format": "json",
+      "sha256": "11c2514df71d0cfc7c7033bda0709b003363611b29d2ab26c758409e2635e416"
+    },
+    {
+      "path": "contracts/memory/lds-memory-policy.json",
+      "kind": "instance",
+      "format": "json",
+      "schema_path": "contracts/memory/lds-memory-policy.schema.json",
+      "sha256": "f4b03c3717469d86e1f53a633e64078c1d98d70a08e546c806257554e314d8e1"
+    },
+    {
+      "path": "contracts/memory/lds-memory-policy.schema.json",
+      "kind": "schema",
+      "format": "json",
+      "sha256": "e37efdb8562667c6f52f2c7bf3026ee66b6f610cd496a338d0ddfe8d66db4490"
+    },
+    {
+      "path": "contracts/policy/lds-policy.json",
+      "kind": "instance",
+      "format": "json",
+      "schema_path": "contracts/policy/lds-policy.schema.json",
+      "sha256": "e40b04ed75505357890013bc81a3b202f71918746de805a2eca332a992867060"
+    },
+    {
+      "path": "contracts/policy/lds-policy.schema.json",
+      "kind": "schema",
+      "format": "json",
+      "sha256": "7c0e6e595e91f2116e24cdf5df14aae36a603fb349ba1ff97c9171bac1dbc099"
+    },
+    {
+      "path": "contracts/retrieval/lds-retrieval-policy.json",
+      "kind": "instance",
+      "format": "json",
+      "schema_path": "contracts/retrieval/lds-retrieval-policy.schema.json",
+      "sha256": "a5def39c40690f841d06c922f526d76c285866134419ff296eab19a4783c6e87"
+    },
+    {
+      "path": "contracts/retrieval/lds-retrieval-policy.schema.json",
+      "kind": "schema",
+      "format": "json",
+      "sha256": "fb77a4f22e6fbf8a92e5898398611382e78dfce139e2f3ff6fab325ffeb0f0d6"
+    },
+    {
+      "path": "contracts/rules/lds-publish-gate.json",
+      "kind": "instance",
+      "format": "json",
+      "schema_path": "contracts/rules/lds-publish-gate.schema.json",
+      "sha256": "11d772ba64d4521b6cbb7b77092ee7f054ae7f430b1aa84d7e7aa4e0258405fd"
+    },
+    {
+      "path": "contracts/rules/lds-publish-gate.schema.json",
+      "kind": "schema",
+      "format": "json",
+      "sha256": "fb2f4e8a2c36aa0971115f5b8f3f75f4bc19b131d0c8968d32002b4b390ff1d9"
+    },
+    {
+      "path": "contracts/rules/lds-publish-gate.yaml",
+      "kind": "instance",
+      "format": "yaml",
+      "schema_path": "contracts/rules/lds-publish-gate.schema.json",
+      "sha256": "4b82c9d82ac5a3d33eddb9d3fc9d656c259c73b769c343f9e385d75a137dd3bd"
+    },
+    {
+      "path": "contracts/rules/lds-ruleset.json",
+      "kind": "instance",
+      "format": "json",
+      "schema_path": "contracts/rules/lds-ruleset.schema.json",
+      "sha256": "6a2390192dc17cc5e4afb409fb2c867a8064589200e60b3a582b7508b8778969"
+    },
+    {
+      "path": "contracts/rules/lds-ruleset.schema.json",
+      "kind": "schema",
+      "format": "json",
+      "sha256": "bd08384405dadefa4077676d6918c833fa13920057e119b3a3f0f2d88e4b37e4"
+    },
+    {
+      "path": "contracts/schemas/lds-frontmatter.schema.json",
+      "kind": "schema",
+      "format": "json",
+      "sha256": "823b463cd68c6e7ef8aa0b5c3ab140a9e0a9c9f449d1245b23ca7544f3c445c5"
+    },
+    {
+      "path": "contracts/token/lds-token-budget.json",
+      "kind": "instance",
+      "format": "json",
+      "schema_path": "contracts/token/lds-token-budget.schema.json",
+      "sha256": "edc444094374ed3469b0d965c9c190fdeaf66c8981447e1b506261a888a72fc5"
+    },
+    {
+      "path": "contracts/token/lds-token-budget.schema.json",
+      "kind": "schema",
+      "format": "json",
+      "sha256": "1f05b9a66a93e73584ae309e7b92e14eeac377fa436ddd6a091cfeb47efec94d"
+    },
+    {
+      "path": "contracts/token/lds-tokenizer-mirror.json",
+      "kind": "instance",
+      "format": "json",
+      "schema_path": "contracts/token/lds-tokenizer-mirror.schema.json",
+      "sha256": "b3b186a988f30fd2f2ac1ed68032af8aa386af5b77baa79cbb9ac95895bbec49"
+    },
+    {
+      "path": "contracts/token/lds-tokenizer-mirror.schema.json",
+      "kind": "schema",
+      "format": "json",
+      "sha256": "3ea0837832511dc24899e27e467737ec3cfa03462ab6f1fbeebbaa0b1336eda1"
+    }
+  ]
+}

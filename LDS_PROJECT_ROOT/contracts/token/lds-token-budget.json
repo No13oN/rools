@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-02-18",
+  "document_limits": {
+    "max_tokens_per_doc": 10000,
+    "max_tokens_for_llms_txt": 10000
+  },
+  "retrieval_limits": {
+    "max_prompt_tokens": 12000,
+    "max_context_tokens": 32000
+  }
+}

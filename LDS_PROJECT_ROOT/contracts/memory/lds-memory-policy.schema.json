@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://knowledge-architecture.local/schemas/lds-memory-policy.schema.json",
+  "title": "LDS Memory Policy Schema",
+  "type": "object",
+  "required": [
+    "version",
+    "last_updated",
+    "memory_classes",
+    "merge_policy",
+    "conflict_policy"
+  ],
+  "properties": {
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "last_updated": { "type": "string", "format": "date" },
+    "memory_classes": {
+      "type": "object",
+      "required": ["short_term", "episodic", "long_term"],
+      "properties": {
+        "short_term": { "type": "object", "required": ["ttl_hours", "write_mode"], "properties": { "ttl_hours": { "type": "integer", "minimum": 1 }, "write_mode": { "type": "string" } }, "additionalProperties": false },
+        "episodic": { "type": "object", "required": ["ttl_days", "write_mode"], "properties": { "ttl_days": { "type": "integer", "minimum": 1 }, "write_mode": { "type": "string" } }, "additionalProperties": false },
+        "long_term": { "type": "object", "required": ["ttl_days", "write_mode"], "properties": { "ttl_days": { "type": "integer", "minimum": 30 }, "write_mode": { "type": "string" } }, "additionalProperties": false }
+      },
+      "additionalProperties": false
+    },
+    "merge_policy": { "type": "object", "required": ["strategy", "requires_provenance"], "properties": { "strategy": { "type": "string" }, "requires_provenance": { "type": "boolean" } }, "additionalProperties": false },
+    "conflict_policy": { "type": "object", "required": ["strategy", "human_review_required"], "properties": { "strategy": { "type": "string" }, "human_review_required": { "type": "boolean" } }, "additionalProperties": false }
+  },
+  "additionalProperties": false
+}

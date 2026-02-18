@@ -1,0 +1,64 @@
+name: lds-validate
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: LDS_PROJECT_ROOT
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install validator dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install jsonschema pyyaml tiktoken
+
+      - name: Setup OPA
+        uses: open-policy-agent/setup-opa@v2
+        with:
+          version: 1.13.1
+
+      - name: Stage 0 - Offline tokenizer gate
+        run: python scripts/validate_tokenizer_offline.py --strict
+
+      - name: Stage 1 - Schema and static gate
+        run: python scripts/validate_lds.py --strict --skip-integrity
+
+      - name: Stage 1b - Unit tests
+        run: python -m unittest discover -s tests -p "test_*.py" -v
+
+      - name: Stage 1c - Mandatory black-swan and memory suite
+        run: |
+          python -m unittest -v \
+            tests.test_black_swan_failures \
+            tests.test_memory_backend_adapter_v1
+
+      - name: Stage 2 - Build policy input
+        run: python scripts/build_policy_input.py
+
+      - name: Stage 2 - Policy gate (OPA/Rego)
+        run: python scripts/eval_policy_gate.py --strict
+
+      - name: Stage 3 - Semantic gate
+        run: python scripts/eval_semantic_gate.py --strict --scorecard reports/release/semantic_scorecard.json
+
+      - name: Stage 4 - Handoff acceptance gate
+        run: python scripts/eval_handoff_acceptance.py --strict
+
+      - name: Stage 5 - Integrity gate
+        run: python scripts/validate_integrity_gate.py --strict
+
+      - name: Stage 6 - Release artifacts gate
+        run: python scripts/validate_release_artifacts.py --strict --artifacts-dir reports/release

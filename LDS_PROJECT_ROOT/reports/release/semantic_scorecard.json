@@ -1,0 +1,24 @@
+{
+  "artifact_id": "semantic_scorecard",
+  "generated_on": "2026-02-18",
+  "status": "pass",
+  "summary": "Semantic gate metrics satisfy configured thresholds.",
+  "weighted_score": 93,
+  "class_scores": {
+    "factual": 94,
+    "procedural": 93,
+    "error_interpretation": 92,
+    "comparison": 88,
+    "edge_case": 86
+  },
+  "critical_hallucination": {
+    "factual": 0,
+    "procedural": 0,
+    "error_interpretation": 0
+  },
+  "retrieval_precision": 0.9,
+  "retrieval_recall": 0.86,
+  "citation_faithfulness": 0.94,
+  "hallucination_rate": 0.03,
+  "p95_latency_ms": 3900
+}

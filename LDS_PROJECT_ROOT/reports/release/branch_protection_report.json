@@ -1,0 +1,8 @@
+{
+  "artifact_id": "branch_protection_report",
+  "generated_on": "2026-02-18",
+  "status": "warn",
+  "summary": "unable to infer GitHub repo",
+  "repo": null,
+  "branch": "main"
+}

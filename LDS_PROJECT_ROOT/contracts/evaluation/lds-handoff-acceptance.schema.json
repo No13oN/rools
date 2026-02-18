@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://knowledge-architecture.local/schemas/lds-handoff-acceptance.schema.json",
+  "title": "LDS Handoff Acceptance Schema",
+  "type": "object",
+  "required": [
+    "version",
+    "last_updated",
+    "required_agents",
+    "max_divergence_percent",
+    "min_shared_steps",
+    "comparison_mode"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "last_updated": {
+      "type": "string",
+      "format": "date"
+    },
+    "required_agents": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "string",
+        "minLength": 2
+      },
+      "uniqueItems": true
+    },
+    "max_divergence_percent": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "min_shared_steps": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "comparison_mode": {
+      "type": "string",
+      "enum": [
+        "set_and_order"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

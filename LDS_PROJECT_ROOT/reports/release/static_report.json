@@ -1,0 +1,6 @@
+{
+  "artifact_id": "static_report",
+  "generated_on": "2026-02-18",
+  "status": "pass",
+  "summary": "Static gate checks passed."
+}

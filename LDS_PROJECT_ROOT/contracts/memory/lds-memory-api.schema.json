@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://knowledge-architecture.local/schemas/lds-memory-api.schema.json",
+  "title": "LDS Memory API Contract Schema",
+  "type": "object",
+  "required": [
+    "interface_id",
+    "version",
+    "last_updated",
+    "transport_agnostic",
+    "operations"
+  ],
+  "properties": {
+    "interface_id": {
+      "type": "string",
+      "const": "lds-memory-api"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "last_updated": {
+      "type": "string",
+      "format": "date"
+    },
+    "transport_agnostic": {
+      "type": "boolean",
+      "const": true
+    },
+    "operations": {
+      "type": "object",
+      "required": [
+        "append",
+        "query",
+        "compact",
+        "evict"
+      ],
+      "properties": {
+        "append": {
+          "$ref": "#/$defs/op"
+        },
+        "query": {
+          "$ref": "#/$defs/op"
+        },
+        "compact": {
+          "$ref": "#/$defs/op"
+        },
+        "evict": {
+          "$ref": "#/$defs/op"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "op": {
+      "type": "object",
+      "required": [
+        "purpose",
+        "request_schema",
+        "response_schema",
+        "idempotent"
+      ],
+      "properties": {
+        "purpose": {
+          "type": "string",
+          "minLength": 5
+        },
+        "request_schema": {
+          "type": "string",
+          "minLength": 3
+        },
+        "response_schema": {
+          "type": "string",
+          "minLength": 3
+        },
+        "idempotent": {
+          "type": "boolean"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

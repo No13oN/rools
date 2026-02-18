@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-02-18",
+  "memory_classes": {
+    "short_term": {
+      "ttl_hours": 24,
+      "write_mode": "append_only"
+    },
+    "episodic": {
+      "ttl_days": 30,
+      "write_mode": "curated_append"
+    },
+    "long_term": {
+      "ttl_days": 365,
+      "write_mode": "promote_on_evidence"
+    }
+  },
+  "merge_policy": {
+    "strategy": "newer_with_higher_evidence",
+    "requires_provenance": true
+  },
+  "conflict_policy": {
+    "strategy": "retain_both_until_human_resolution",
+    "human_review_required": true
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-02-18",
+  "canonical_read_order": [
+    "docs/standards/lds-spec.md",
+    "docs/standards/lds-execution-card.md",
+    "contracts/rules/lds-ruleset.json",
+    "contracts/policy/lds-policy.json",
+    "docs/governance/lds-glossary.md",
+    "docs/governance/lds-waivers.md"
+  ],
+  "denylist_globs": [
+    "legacy/**",
+    "tests/fixtures/**",
+    "**/__pycache__/**"
+  ],
+  "retrieval_limits": {
+    "max_chunks_per_query": 24,
+    "max_total_tokens": 18000
+  }
+}

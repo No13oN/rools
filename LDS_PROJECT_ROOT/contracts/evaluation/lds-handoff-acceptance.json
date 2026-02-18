@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-02-18",
+  "required_agents": [
+    "codex",
+    "claude",
+    "gemini"
+  ],
+  "max_divergence_percent": 10,
+  "min_shared_steps": 5,
+  "comparison_mode": "set_and_order"
+}

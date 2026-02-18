@@ -1,0 +1,7 @@
+{
+  "artifact_id": "integrity_report",
+  "generated_on": "2026-02-18",
+  "status": "pass",
+  "summary": "Tier-0 hash integrity verified.",
+  "drift_incidents": 0
+}

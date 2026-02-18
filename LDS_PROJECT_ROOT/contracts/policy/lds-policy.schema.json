@@ -1,0 +1,191 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://knowledge-architecture.local/schemas/lds-policy.schema.json",
+  "title": "LDS Machine Policy Schema",
+  "type": "object",
+  "required": [
+    "policy_id",
+    "version",
+    "last_updated",
+    "sources",
+    "canonical_contract_manifest",
+    "must_rules",
+    "publish_gate",
+    "required_artifacts"
+  ],
+  "properties": {
+    "policy_id": {
+      "type": "string",
+      "const": "lds-machine-policy"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "last_updated": {
+      "type": "string",
+      "format": "date"
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "must_rules": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "text",
+          "category",
+          "check_type",
+          "auto_check"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^LDS-MUST-[0-9]{3}$"
+          },
+          "text": {
+            "type": "string",
+            "minLength": 5
+          },
+          "category": {
+            "type": "string"
+          },
+          "check_type": {
+            "type": "string",
+            "enum": [
+              "static",
+              "semantic",
+              "governance"
+            ]
+          },
+          "auto_check": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "publish_gate": {
+      "type": "object",
+      "required": [
+        "static",
+        "semantic",
+        "governance"
+      ],
+      "properties": {
+        "static": {
+          "type": "object",
+          "required": [
+            "required_checks"
+          ],
+          "properties": {
+            "required_checks": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "semantic": {
+          "type": "object",
+          "required": [
+            "weighted_score_min",
+            "class_thresholds",
+            "block_on_critical_hallucination"
+          ],
+          "properties": {
+            "weighted_score_min": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "class_thresholds": {
+              "type": "object",
+              "required": [
+                "factual",
+                "procedural",
+                "error_interpretation",
+                "comparison",
+                "edge_case"
+              ],
+              "properties": {
+                "factual": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 100
+                },
+                "procedural": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 100
+                },
+                "error_interpretation": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 100
+                },
+                "comparison": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 100
+                },
+                "edge_case": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 100
+                }
+              },
+              "additionalProperties": false
+            },
+            "block_on_critical_hallucination": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "governance": {
+          "type": "object",
+          "required": [
+            "required_checks"
+          ],
+          "properties": {
+            "required_checks": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "required_artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "canonical_contract_manifest": {
+      "type": "string",
+      "const": "contracts/governance/lds-contract-manifest.json"
+    }
+  },
+  "additionalProperties": false
+}

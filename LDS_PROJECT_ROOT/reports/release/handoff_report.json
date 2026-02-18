@@ -1,0 +1,45 @@
+{
+  "artifact_id": "handoff_report",
+  "generated_on": "2026-02-18",
+  "status": "pass",
+  "summary": "Handoff acceptance passed.",
+  "required_agents": [
+    "codex",
+    "claude",
+    "gemini"
+  ],
+  "max_divergence_percent": 10.0,
+  "worst_divergence_percent": 0.0,
+  "comparisons": [
+    {
+      "pair": [
+        "codex",
+        "claude"
+      ],
+      "divergence_percent": 0.0,
+      "set_divergence_percent": 0.0,
+      "order_divergence_percent": 0.0,
+      "shared_steps": 6
+    },
+    {
+      "pair": [
+        "codex",
+        "gemini"
+      ],
+      "divergence_percent": 0.0,
+      "set_divergence_percent": 0.0,
+      "order_divergence_percent": 0.0,
+      "shared_steps": 6
+    },
+    {
+      "pair": [
+        "claude",
+        "gemini"
+      ],
+      "divergence_percent": 0.0,
+      "set_divergence_percent": 0.0,
+      "order_divergence_percent": 0.0,
+      "shared_steps": 6
+    }
+  ]
+}

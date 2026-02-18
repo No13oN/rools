@@ -1,0 +1,8 @@
+{
+  "artifact_id": "release_tag_report",
+  "generated_on": "2026-02-18",
+  "status": "warn",
+  "summary": "Tag creation skipped (--create-tag not set).",
+  "tag": "lds-v1.0.0",
+  "created": false
+}

@@ -1,0 +1,28 @@
+{
+  "artifact_id": "freeze_report",
+  "generated_on": "2026-02-18",
+  "status": "pass",
+  "summary": "Production baseline frozen for vendor-neutral LDS core.",
+  "baseline": {
+    "standard_version": "1.3.0",
+    "policy_version": "1.4.0",
+    "publish_gate_version": "1.3.0",
+    "contract_manifest_sha256": "8594e94db1c53b2e533d0ee8352764c0f1a2fb926484a3eee8c866095cc5b342",
+    "protected_manifest_sha256": "eeac238b76539e098e939bed9e55f2a394d161930bc61728ecb68d92dd173ecb",
+    "tokenizer_mirror_asset_sha256": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7"
+  },
+  "gate_snapshot": {
+    "static_report.json": "pass",
+    "semantic_scorecard.json": "pass",
+    "waiver_list.json": "pass",
+    "freshness_report.json": "pass",
+    "integrity_report.json": "pass",
+    "retrieval_report.json": "pass",
+    "token_budget_report.json": "pass",
+    "evaluation_report.json": "pass",
+    "policy_report.json": "pass",
+    "handoff_report.json": "pass",
+    "freeze_report.json": "pass"
+  },
+  "warnings": []
+}

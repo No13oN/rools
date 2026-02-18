@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://knowledge-architecture.local/schemas/lds-eval-thresholds.schema.json",
+  "title": "LDS Evaluation Thresholds Schema",
+  "type": "object",
+  "required": [
+    "version",
+    "last_updated",
+    "thresholds"
+  ],
+  "properties": {
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "last_updated": { "type": "string", "format": "date" },
+    "thresholds": {
+      "type": "object",
+      "required": [
+        "retrieval_precision_min",
+        "retrieval_recall_min",
+        "citation_faithfulness_min",
+        "hallucination_rate_max",
+        "p95_latency_ms_max"
+      ],
+      "properties": {
+        "retrieval_precision_min": { "type": "number", "minimum": 0, "maximum": 1 },
+        "retrieval_recall_min": { "type": "number", "minimum": 0, "maximum": 1 },
+        "citation_faithfulness_min": { "type": "number", "minimum": 0, "maximum": 1 },
+        "hallucination_rate_max": { "type": "number", "minimum": 0, "maximum": 1 },
+        "p95_latency_ms_max": { "type": "integer", "minimum": 1 }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
