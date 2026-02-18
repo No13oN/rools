@@ -32,6 +32,7 @@ Build a universal, vendor-neutral knowledge architecture so any LLM can continue
 - `/Users/sergej13/Xzone/rools/LDS_PROJECT_ROOT/tests/test_memory_backend_adapter_v1.py`
 - `/Users/sergej13/Xzone/rools/LDS_PROJECT_ROOT/scripts/memory_backend_adapter_v2.py` (production SQLite backend)
 - `/Users/sergej13/Xzone/rools/LDS_PROJECT_ROOT/tests/test_memory_backend_adapter_v2.py`
+- v2 hardening: path traversal guard for `--records-file`, SQL-level `min_evidence` filtering, strict exception narrowing.
 
 4. Release baseline/tag logic:
 - `/Users/sergej13/Xzone/rools/LDS_PROJECT_ROOT/scripts/release_v1_baseline.py`
@@ -46,8 +47,8 @@ Build a universal, vendor-neutral knowledge architecture so any LLM can continue
 
 ## Latest Validation State
 From `/Users/sergej13/Xzone/rools/LDS_PROJECT_ROOT`:
-- `python3 -m unittest discover -s tests -p "test_*.py" -v` -> PASS (`33 tests`)
-- `python3 -m unittest -v tests.test_black_swan_failures tests.test_memory_backend_adapter_v1 tests.test_memory_backend_adapter_v2` -> PASS (`10 tests`)
+- `python3 -m unittest discover -s tests -p "test_*.py" -v` -> PASS (`36 tests`)
+- `python3 -m unittest -v tests.test_black_swan_failures tests.test_memory_backend_adapter_v1 tests.test_memory_backend_adapter_v2` -> PASS (`13 tests`)
 - `python3 scripts/validate_tokenizer_offline.py --strict` -> PASS
 - `python3 scripts/validate_lds.py --strict` -> PASS
 - `python3 scripts/build_policy_input.py` -> PASS
@@ -62,12 +63,12 @@ From `/Users/sergej13/Xzone/rools/LDS_PROJECT_ROOT`:
 
 ## Open Gaps
 1. No blocking release gaps as of 2026-02-18.
-2. Protected branch requires PR flow by design (operational constraint, not a blocker).
+2. Protected branch requires PR flow by design.
 
 ## Practical Next Steps
-1. Verify post-merge baseline on `main` commit `fc5000b`.
+1. Verify post-merge baseline on `main` commit `2e6278d`.
 2. Optional: add `.gitignore` cleanup for `__pycache__` and OS artifacts to reduce repository noise.
-3. Optional: issue a follow-up tag that points to current `main` if release policy requires tag-on-main only.
+3. Optional: If release policy requires, create a tag that points to current `main`.
 
 ## Handoff Note
 This file is the bootstrap context for the next model session. Regenerate after major architecture changes.
