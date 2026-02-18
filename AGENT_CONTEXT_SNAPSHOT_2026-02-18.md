@@ -62,11 +62,11 @@ From `/Users/sergej13/Xzone/rools/LDS_PROJECT_ROOT`:
 
 ## Open Gaps
 1. Protected branch blocks direct pushes to `main` by design; delivery is via PR flow.
-2. PR merge pending for latest changes: `https://github.com/No13oN/rools/pull/1`.
+2. PR merge is blocked by branch policy until at least one approving review from a writer: `https://github.com/No13oN/rools/pull/1`.
 
 ## Practical Next Steps
-1. Wait for `validate` status check on PR #1 and merge into `main`.
-2. After merge, verify `main` contains commit `fec1627` and tag reachability.
+1. Obtain one approving review on PR #1 and merge into `main`.
+2. After merge, verify `main` contains commit `8c7c274` and tag reachability.
 3. Optional: add `.gitignore` cleanup for `__pycache__` and OS artifacts to reduce repository noise.
 
 ## Handoff Note
