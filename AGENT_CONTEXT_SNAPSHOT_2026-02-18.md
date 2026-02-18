@@ -61,13 +61,13 @@ From `/Users/sergej13/Xzone/rools/LDS_PROJECT_ROOT`:
 - `python3 scripts/release_v1_baseline.py --strict --create-tag --tag lds-v1.0.0` -> PASS
 
 ## Open Gaps
-1. Protected branch blocks direct pushes to `main` by design; delivery is via PR flow.
-2. PR merge is blocked by branch policy until at least one approving review from a writer: `https://github.com/No13oN/rools/pull/1`.
+1. No blocking release gaps as of 2026-02-18.
+2. Protected branch requires PR flow by design (operational constraint, not a blocker).
 
 ## Practical Next Steps
-1. Obtain one approving review on PR #1 and merge into `main`.
-2. After merge, verify `main` contains commit `8c7c274` and tag reachability.
-3. Optional: add `.gitignore` cleanup for `__pycache__` and OS artifacts to reduce repository noise.
+1. Verify post-merge baseline on `main` commit `fc5000b`.
+2. Optional: add `.gitignore` cleanup for `__pycache__` and OS artifacts to reduce repository noise.
+3. Optional: issue a follow-up tag that points to current `main` if release policy requires tag-on-main only.
 
 ## Handoff Note
 This file is the bootstrap context for the next model session. Regenerate after major architecture changes.
