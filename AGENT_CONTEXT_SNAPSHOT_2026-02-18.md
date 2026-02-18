@@ -39,7 +39,7 @@ Build a universal, vendor-neutral knowledge architecture so any LLM can continue
 - `/Users/sergej13/Xzone/rools/LDS_PROJECT_ROOT/tests/test_release_v1_baseline.py`
 - `/Users/sergej13/Xzone/rools/LDS_PROJECT_ROOT/reports/release/freeze_report.json`
 - `/Users/sergej13/Xzone/rools/LDS_PROJECT_ROOT/reports/release/release_tag_report.json`
-- Git tag: `lds-v1.0.0` (annotated, provenance hashes in tag message)
+- Git tags: `lds-v1.0.0`, `lds-v1.0.1` (annotated, provenance hashes in tag message)
 
 5. Mandatory CI critical suite gate:
 - `/Users/sergej13/Xzone/rools/.github/workflows/lds-validate.yml` (explicit Stage 1c for black-swan + memory v1/v2 tests)
@@ -60,15 +60,15 @@ From `/Users/sergej13/Xzone/rools/LDS_PROJECT_ROOT`:
 - `python3 scripts/check_branch_protection.py --repo No13oN/rools --branch main --strict` -> PASS
 - `python3 scripts/release_v1_baseline.py --strict` -> PASS
 - `python3 scripts/release_v1_baseline.py --strict --create-tag --tag lds-v1.0.0` -> PASS
+- `python3 scripts/release_v1_baseline.py --strict --create-tag --tag lds-v1.0.1` -> PASS
 
 ## Open Gaps
 1. No blocking release gaps as of 2026-02-18.
 2. Protected branch requires PR flow by design.
 
 ## Practical Next Steps
-1. Verify post-merge baseline on `main` commit `2e6278d`.
+1. Verify post-merge baseline on `main` commit `e67a5a4`.
 2. Optional: add `.gitignore` cleanup for `__pycache__` and OS artifacts to reduce repository noise.
-3. Optional: If release policy requires, create a tag that points to current `main`.
 
 ## Handoff Note
 This file is the bootstrap context for the next model session. Regenerate after major architecture changes.
